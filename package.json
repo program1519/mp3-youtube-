@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "express": "^4.21.1",
+    "prompt-sync": "^4.2.0",
+    "youtube-to-mp3-poji": "^1.0.4"
+  }
+}
