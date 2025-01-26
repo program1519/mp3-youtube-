@@ -1,70 +1,80 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="https://program1519.xyz/index.png" />
     <meta charset="UTF-8">
-    <title>YouTube to MP3  - program1519</title>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube to MP3 Converter</title>
     <style>
-        body {
-            font-family: 'Prompt', sans-serif;
-            background-color: #252525;
-            color: #f0f0f0; 
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #ffffff;
-        }
-        .button-48 {
-            appearance: none;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            color: #FFFFFF;
-            cursor: pointer;
-            display: inline-block;
-            font-size: 16px;
-            font-weight: 500;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            margin: 20px auto;
-            display: block;
-        }
-        .button-48:hover {
-            background-color: #0056b3;
-        }
-        .input-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        input[type="text"] {
-            padding: 10px;
-            width: 300px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        #result {
-            text-align: center;
-            margin-top: 20px;
-        }
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 14px;
-            color: #dddddd;
-        }
+         body {
+    background-color: #5e5e5e;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "Roboto", sans-serif;
+    margin: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: transform 0.5s ease; 
+}
+.rotated {
+  transform: rotateX(29deg) rotateY(27deg) rotateZ(342deg);
+}
+
+.section {
+    margin-bottom: 20px;
+}
+.section img {
+    width: 50px; 
+    height: 50px;
+    float: left;
+    margin-right: 15px;
+}
+.section h2 {
+    font-size: 24px;
+    margin: 0 0 10px 0;
+}
+.section p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 5px 0;
+}
+.columns {
+    display: flex;
+    justify-content: space-between;
+}
+.columns .column {
+    width: 30%;
+    background-color: #5e5e5e;
+    padding: 10px;
+    
+}
     </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <h2>Convert YouTube to MP3!</h2>
+        </div>
+        <div class="input-container">
+            <input type="text" id="youtubeLink" placeholder="Enter your YouTube link!" />
+            <button onclick="convertToMP3()">Convert</button>
+        </div>
+        <div id="result"></div>
+    </div>
+
     <script>
         async function convertToMP3() {
             const link = document.getElementById('youtubeLink').value;
 
             if (!link) {
-                document.getElementById('result').innerHTML = 'กรุณากรอกลิงก์ YouTube!!!!!!(╯°□°）╯︵ ┻━┻';
+                document.getElementById('result').innerHTML = 'Please enter a YouTube link! (╯°□°）╯︵ ┻━┻';
                 return;
             }
 
@@ -79,32 +89,17 @@
 
                 if (data.data && data.data.link) {
                     document.getElementById('result').innerHTML = `
-                        <p>ชื่อเพลง: ${data.data.title}</p>
-                        <p>ขนาดไฟล์: ${data.data.filesize} ไบต์</p>
-                        <p>ลิงก์ดาวน์โหลด╰(*°▽°*)╯: <a href="${data.data.link}" target="_blank">ดาวน์โหลด MP3</a></p>
+                        <p>Title: ${data.data.title}</p>
+                        <p>File size: ${data.data.filesize} MB</p>
+                        <p>Conversion Complete! ╰(*°▽°*)╯: <a href="${data.data.link}" target="_blank">Download MP3</a></p>
                     `;
                 } else {
-                    document.getElementById('result').innerHTML = data.error || 'เกิดข้อผิดพลาด';
+                    document.getElementById('result').innerHTML = data.error || 'An error occurred.';
                 }
             } catch (error) {
-                document.getElementById('result').innerHTML = `ข้อผิดพลาด: ${error.message}`;
+                document.getElementById('result').innerHTML = `Error: ${error.message}`;
             }
         }
     </script>
-</head>
-<body>
-    <h1>แปลง YouTube เป็น MP3</h1>
-    
-    <div class="input-container">
-        <input type="text" id="youtubeLink" placeholder="กรอกลิงก์ YouTube ที่นี่" />
-        <button class="button-48" onclick="convertToMP3()">แปลง</button>
-    </div>
-
-    <div id="result"></div>
- <footer>
-   
-        <p>By:program1519❤</p>
-    </footer>
-    
 </body>
 </html>
