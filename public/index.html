@@ -4,58 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube to MP3 Converter</title>
-    <style>
-         body {
-    background-color: #5e5e5e;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    font-family: "Roboto", sans-serif;
-    margin: 20px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8); 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  transition: transform 0.5s ease; 
-}
-.rotated {
-  transform: rotateX(29deg) rotateY(27deg) rotateZ(342deg);
-}
-
-.section {
-    margin-bottom: 20px;
-}
-.section img {
-    width: 50px; 
-    height: 50px;
-    float: left;
-    margin-right: 15px;
-}
-.section h2 {
-    font-size: 24px;
-    margin: 0 0 10px 0;
-}
-.section p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 5px 0;
-}
-.columns {
-    display: flex;
-    justify-content: space-between;
-}
-.columns .column {
-    width: 30%;
-    background-color: #5e5e5e;
-    padding: 10px;
-    
-}
-    </style>
+	<link rel="stylesheet" href="https://p1519.xyz/styles.css?v=2.9">
+	    <link rel="shortcut icon" type="image/x-icon" href="https://p1519.xyz/img/head.png" />
+	<style>
+	body {
+    background: black;
+   
+     }
+	
+	</style>
+   
 </head>
 <body>
     <div class="container">
@@ -90,8 +48,7 @@
                 if (data.data && data.data.link) {
                     document.getElementById('result').innerHTML = `
                         <p>Title: ${data.data.title}</p>
-                        <p>File size: ${data.data.filesize} MB</p>
-                        <p>Conversion Complete! ╰(*°▽°*)╯: <a href="${data.data.link}" target="_blank">Download MP3</a></p>
+                        <p>Complete!: <a href="${data.data.link}" target="_blank">Download MP3 here!</a></p>
                     `;
                 } else {
                     document.getElementById('result').innerHTML = data.error || 'An error occurred.';
